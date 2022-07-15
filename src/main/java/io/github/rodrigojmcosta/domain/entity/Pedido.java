@@ -20,7 +20,7 @@ public class Pedido {
     @Column(name = "DATA_PEDIDO")
     private LocalDateTime dataPedido;
 
-    @Column(name = "TOTAL", length = 20, precision = 2)
+    @Column(name = "TOTAL", scale = 2, precision = 20)
     private BigDecimal total;
 
     @OneToMany(mappedBy = "pedido")
@@ -64,5 +64,14 @@ public class Pedido {
 
     public void setItens(List<ItemPedido> itens) {
         this.itens = itens;
+    }
+
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "id=" + id +
+                ", dataPedido=" + dataPedido +
+                ", total=" + total +
+                '}';
     }
 }
