@@ -2,7 +2,7 @@ package io.github.rodrigojmcosta.domain.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -18,7 +18,7 @@ public class Pedido {
     private Cliente cliente;
 
     @Column(name = "DATA_PEDIDO")
-    private LocalDateTime dataPedido;
+    private LocalDate dataPedido;
 
     @Column(name = "TOTAL", scale = 2, precision = 20)
     private BigDecimal total;
@@ -42,11 +42,11 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    public LocalDateTime getDataPedido() {
+    public LocalDate getDataPedido() {
         return dataPedido;
     }
 
-    public void setDataPedido(LocalDateTime dataPedido) {
+    public void setDataPedido(LocalDate dataPedido) {
         this.dataPedido = dataPedido;
     }
 
