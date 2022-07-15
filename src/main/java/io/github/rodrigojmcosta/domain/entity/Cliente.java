@@ -1,15 +1,17 @@
 package io.github.rodrigojmcosta.domain.entity;
 
-//@Entity
-//@Table(name = "CLIENTE")
+import javax.persistence.*;
+
+@Entity
+@Table(name = "CLIENTE")
 public class Cliente {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    @Column(name = "ID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private Integer id;
 
-//    @Column(name = "NAME", length = 100)
+    @Column(name = "NAME", length = 100)
     private String nome;
 
     public Cliente() {
