@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ApplicationControllerAdvice {
 
+    /*
+    Captura erros em tempo de execução para que se faça tratamento personalizado de erros, definindo
+    status HTTP específicos e capturando a mensagem de cada erro
+     */
     @ExceptionHandler(RegraNegocioException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiErrors handleRegraNegocioException(RegraNegocioException ex) {
