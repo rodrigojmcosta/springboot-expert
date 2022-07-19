@@ -1,5 +1,6 @@
 package io.github.rodrigojmcosta.rest.controller;
 
+import io.github.rodrigojmcosta.exception.PedidoNaoEncontradoException;
 import io.github.rodrigojmcosta.exception.RegraNegocioException;
 import io.github.rodrigojmcosta.rest.ApiErrors;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,12 @@ public class ApplicationControllerAdvice {
     public ApiErrors handleRegraNegocioException(RegraNegocioException ex) {
         String mensagemErro = ex.getMessage();
         return new ApiErrors(mensagemErro);
+    }
+
+    @ExceptionHandler(PedidoNaoEncontradoException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ApiErrors handlePedidoNotFoundException(PedidoNaoEncontradoException ex) {
+        return new ApiErrors(ex.getMessage());
     }
 
 }

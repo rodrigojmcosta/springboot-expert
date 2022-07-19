@@ -1,5 +1,6 @@
 package io.github.rodrigojmcosta.domain.entity;
 
+import io.github.rodrigojmcosta.domain.enums.StatusPedido;
 import lombok.*;
 
 import javax.persistence.*;
@@ -28,6 +29,10 @@ public class Pedido {
 
     @Column(name = "TOTAL", scale = 2, precision = 20)
     private BigDecimal total;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "STATUS")
+    private StatusPedido status;
 
     @OneToMany(mappedBy = "pedido")
     private List<ItemPedido> itens;
